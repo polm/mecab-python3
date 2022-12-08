@@ -9,7 +9,7 @@ if [ `uname -m` == 'aarch64' ]; then
   plat=aarch64
 fi
 
-cd /github/workspace/mecab_$plat
+cd /github/workspace/mecab_$plat/mecab
 make install
 
 # Hack
