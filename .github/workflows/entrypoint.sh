@@ -4,7 +4,6 @@ set -e
 manylinux_version=2014
 plat=x86_64
 
-cd mecab/mecab
 if [ `uname -m` == 'aarch64' ]; then
   manylinux_version=2014
   plat=aarch64
