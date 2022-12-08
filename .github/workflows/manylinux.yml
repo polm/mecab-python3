@@ -56,7 +56,7 @@ jobs:
       id: cache-mecab
       uses: actions/cache@v3
       with:
-        path: /github/workspace/mecab_${{ matrix.arch }}
+        path: ${{ github.workspace }}/mecab_${{ matrix.arch }}
         key: mecab-build-${{ matrix.arch }}
 
     # The verbosity and indirection here seems to be a required side effect of
