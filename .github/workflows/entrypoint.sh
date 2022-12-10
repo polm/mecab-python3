@@ -18,9 +18,9 @@ make install
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/
 
 # Build the wheels
-for PYVER in /opt/python/cp*; do
+for PYVER in cp37-cp37m cp38-cp38 cp39-cp39 cp310-cp310 cp311-cp311; do
   # build the wheels
-  $PYVER/bin/pip wheel /github/workspace -w /github/workspace/wheels || { echo "Failed while buiding $PYVER wheel"; exit 1; }
+  /opt/python/$PYVER/bin/pip wheel /github/workspace -w /github/workspace/wheels || { echo "Failed while buiding $PYVER wheel"; exit 1; }
 done
 
 # fix the wheels (bundles libs)
