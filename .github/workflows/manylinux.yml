@@ -52,7 +52,7 @@ jobs:
       with:
         python-version: '3.x'
 
-    - name: Cache ${{ matrix.arch }} mecab
+    - name: Cache mecab
       id: cache-mecab
       uses: actions/cache@v3
       with:
@@ -65,17 +65,17 @@ jobs:
       if: matrix.arch == 'x86_64' && steps.cache-mecab.outputs.cache-hit != 'true'
       uses: ./.github/workflows/actions/build-manylinux/
     - name: Build x86_64 wheels
-      if: ${{ matrix.arch == 'x86_64' }}
+      if: matrix.arch == 'x86_64'
       uses: ./.github/workflows/actions/build-wheels/
 
     - name: Set up QEMU
-      if: ${{ matrix.arch == 'aarch64' }}
+      if: matrix.arch == 'aarch64'
       uses: docker/setup-qemu-action@v1
     - name: Build aarch64 MeCab
       if: matrix.arch == 'aarch64' && steps.cache-mecab.outputs.cache-hit != 'true'
       uses: ./.github/workflows/actions_aarch64/build_manylinux2014/
     - name: Build aarch64 wheels
-      if: ${{ matrix.arch == 'aarch64' }}
+      if: matrix.arch == 'aarch64'
       uses: ./.github/workflows/actions_aarch64/build_wheels/
 
     - name: Upload Wheels
