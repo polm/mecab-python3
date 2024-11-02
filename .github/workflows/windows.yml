@@ -76,7 +76,7 @@ jobs:
         path: dist
     - run: |
         mv dist/*/*.whl dist/
-        rmdir dist/*
+        rmdir dist/* || true
         ls -R dist/
     - name: Publish to PyPI if tagged
       if: startsWith(github.ref, 'refs/tags') && github.repository_owner == 'polm'
