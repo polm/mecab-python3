@@ -66,6 +66,8 @@ jobs:
         pip install "dist/mecab_python3-${VERSION}-cp${{ matrix.py-short }}-cp${{ matrix.py-short2 }}-win_amd64.whl"
   publish:
     needs: build
+    permissions:
+      id-token: write
     runs-on: ubuntu-latest
     steps:
     - name: Download Wheels
