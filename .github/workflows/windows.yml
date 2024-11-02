@@ -74,10 +74,10 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         path: dist
-      # put wheels directly in dist
-    - run: mv dist/*/*.whl dist/
-      # show the actual downloaded files
-    - run: ls -R dist/
+    - run: |
+        mv dist/*/*.whl dist/
+        rmdir dist/*
+        ls -R dist/
     - name: Publish to PyPI if tagged
       if: startsWith(github.ref, 'refs/tags') && github.repository_owner == 'polm'
       uses: pypa/gh-action-pypi-publish@release/v1
