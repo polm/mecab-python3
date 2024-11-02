@@ -26,9 +26,6 @@ jobs:
       with: 
         name: osx-wheels
         path: dist
-    - name: Publish to PyPI if tagged
-      if: startsWith(github.ref, 'refs/tags') && github.repository_owner == 'polm'
-      uses: pypa/gh-action-pypi-publish@release/v1
   publish:
     needs: build_osx
     permissions:
