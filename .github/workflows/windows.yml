@@ -64,6 +64,14 @@ jobs:
         ls -la dist
         VERSION=$(python setup.py --version)
         pip install "dist/mecab_python3-${VERSION}-cp${{ matrix.py-short }}-cp${{ matrix.py-short2 }}-win_amd64.whl"
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download Wheels
+      uses: actions/download-artifact@v4
+      with:
+        path: dist
     - name: Publish to PyPI if tagged
       if: startsWith(github.ref, 'refs/tags') && github.repository_owner == 'polm'
       uses: pypa/gh-action-pypi-publish@release/v1
