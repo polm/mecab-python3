@@ -78,7 +78,7 @@ The dictionaries below are not recommended due to being unmaintained for many ye
 - [ipadic](https://github.com/polm/ipadic-py)
 - [jumandic](https://github.com/polm/jumandic-py)
 
-For more details on the differences between dictionaries see [here](https://www.dampfkraft.com/nlp/japanese-tokenizer-dictionaries.html). 
+For more details on the differences between dictionaries see this [overview of Japanese tokenizer dictionaries](https://www.dampfkraft.com/nlp/japanese-tokenizer-dictionaries.html).
 
 # Common Issues
 
@@ -86,7 +86,7 @@ If you get a `RuntimeError` when you try to run MeCab, here are some things to c
 
 ## Windows Redistributable
 
-You have to install [this][msvc] to use this package on Windows.
+You have to install [the Microsoft Visual C++ Redistributable][msvc] to use MeCab on Windows.
 
 ## Installing a Dictionary
 
@@ -133,4 +133,4 @@ Taku Kudo <taku@chasen.org> and Nippon Telegraph and Telephone Corporation,
 and is distributed under a 3-clause BSD license (see the file `BSD`).
 Alternatively, it may be redistributed under the terms of the
 GNU General Public License, version 2 (see the file `GPL`) or the
-GNU Lesser General Public License, version 2.1 (see the file `LGPL`). 
+GNU Lesser General Public License, version 2.1 (see the file `LGPL`).
